@@ -11,6 +11,7 @@ let app = new Vue({
         filmsByInput: [],
         userInput:"",
         vote: null,
+        flag:""
 
     },
     // funzione che mostra i film cercati dall'utente cambiando dinamicamente la stringa della query
@@ -21,33 +22,35 @@ let app = new Vue({
             .then(response => {
                 this.filmsByInput = response.data.results;
                 console.log(this.filmsByInput);
+
                 this.averageStars();
+                this.showFlag();
             });
         },
+        
         // MILESTONE 2:
         // Trasformiamo il voto da 1 a 10 decimale in un numero intero da 1 a 5, così da permetterci di stampare a schermo un numero di stelle piene che vanno da 1 a 5, lasciando le restanti vuote (troviamo le icone in FontAwesome).
         // Arrotondiamo sempre per eccesso all’unità successiva, non gestiamo icone mezze piene (o mezze vuote :P)
 
         //funzione che trasforma il voto (n.decimale 1-10) in stelle (n.intero 1-5)
-        averageStars () {
+        averageStars(){
             this.filmsByInput.forEach(elem =>{
-              this.vote = elem.vote_average;
-              let stars = Math.ceil((this.vote * 0.5));
-              console.log(stars);
+                this.vote = elem.vote_average;
+                let stars = Math.ceil(this.vote * 0.5);
+                return elem.stars = stars;
             })
-          }
+        },
+        
+        showFlag(){
+            this.filmsByInput.forEach( elem => {
+                this.flag = elem.original_language;
+                let flagImg = 'https://www.countryflags.io/' + this.flag + '/flat/64.png';
+                return elem.flag = flagImg;
+                
+            })
 
-
+        }
     }
-    //*****************************************************************
-
-    // Milestone 2:
-    // Trasformiamo il voto da 1 a 10 decimale in un numero intero da 1 a 5, così da permetterci di stampare a schermo un numero di stelle piene che vanno da 1 a 5, lasciando le restanti vuote (troviamo le icone in FontAwesome).
-    // Arrotondiamo sempre per eccesso all’unità successiva, non gestiamo icone mezze piene (o mezze vuote :P)
-
-
-
-
 });
 
 

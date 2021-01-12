@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boolfix</title>
-    
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" />
     <!-- style.css -->
     <link rel="stylesheet" href="./assets/css/style.css">
-
 </head>
 <body>
     <div id="app">
@@ -18,12 +20,25 @@
                 <div>
                     <h2>{{film.title}}</h2>
                     <h3>{{film.original_title}}</h3>
-                    <p> Lingua: {{film.original_language}}</p>
-                    <p> Voto: {{film.vote_average}}</p>
+                    <p> Lingua: </p> 
+                    <!-- <span v-if="film.original_language == 'en' ">{{film.original_language}} </span> -->
+
+                    <img v-if="film.original_language == 'en' "  src="./assets/img/en.png" alt="" class="flag">
+                    <img v-else-if="film.original_language == 'ko'" src="./assets/img/ko.png" alt="">
+                    <img v-else-if="film.original_language == 'ja'" src="./assets/img/ja.png" alt="">
+                    <img v-else-if="film.original_language == 'da'" src="./assets/img/da.png" alt="">
+                    <img v-else :src="film.flag" alt="">
+                    <br>
+
+                    <i v-for ="star in film.stars" class="fas fa-star"></i><i v-for ="starsEmpty in 5 - film.stars" class="far fa-star"></i>
+                    
+                    <br>
                     <br>
                 </div>
             </div>
         </div>
+
+       
 
 
 
