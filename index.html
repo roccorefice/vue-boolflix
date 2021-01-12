@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolfix</title>
+    
+    <!-- style.css -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+</head>
+<body>
+    <div id="app">
+        <div>
+            <input type="search" name="" id="" v-model="userInput">
+            <button @click="showFilmsByInput(userInput)">CERCA</button>
+            <div v-for="film in filmsByInput" >
+                <div>
+                    <h2>{{film.title}}</h2>
+                    <h3>{{film.original_title}}</h3>
+                    <p>{{film.original_language}}</p>
+                    <p>{{film.vote_average}}</p>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- js -->
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
