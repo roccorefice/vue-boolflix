@@ -35,6 +35,8 @@
                 <br>
 
                 <i v-for ="star in film.stars" class="fas fa-star"></i><i v-for ="starsEmpty in 5 - film.stars" class="far fa-star"></i>
+
+                <img :src="film.poster" alt="">
                 
                 <br>
                 <br>
@@ -58,6 +60,9 @@
                 <br>
 
                 <i v-for ="star in tvserie.stars" class="fas fa-star"></i><i v-for ="starsEmpty in 5 - tvserie.stars" class="far fa-star"></i>
+
+                <img :src="tvserie.poster" alt="">
+
                 
                 <br>
                 <br>

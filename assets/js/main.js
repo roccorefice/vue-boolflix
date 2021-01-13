@@ -6,7 +6,8 @@ let app = new Vue({
         tvSeriesByInput: [],
         userInput:"",
         vote: null,
-        flag:""
+        flag:"",
+        poster:""
     },
 
     
@@ -27,7 +28,8 @@ let app = new Vue({
                 console.log(this.filmsByInput);
 
                 this.averageStars(this.filmsByInput);
-                this.showFlag(this.filmsByInput);
+                this.addFlag(this.filmsByInput);
+                this.addPoster(this.filmsByInput);
             });
         },
 
@@ -40,7 +42,8 @@ let app = new Vue({
                 console.log(this.tvSeriesByInput);
 
                 this.averageStars(this.tvSeriesByInput);
-                this.showFlag(this.tvSeriesByInput);
+                this.addFlag(this.tvSeriesByInput);
+                this.addPoster(this.tvSeriesByInput);
             });
         },
         
@@ -56,13 +59,23 @@ let app = new Vue({
         },
         
         //funzione che cambia e aggiunge dinamicamente l'immagine della bandiera ai films e serieTv
-        showFlag(array){
+        addFlag(array){
             array.forEach( elem => {
                 this.flag = elem.original_language;
                 let flagImg = 'https://www.countryflags.io/' + this.flag + '/flat/64.png';
                 return elem.flag = flagImg;
             });
         },
+
+        addPoster(array){
+            array.forEach( elem =>{
+                this.poster = elem.poster_path;
+                let posterImg = 'https://image.tmdb.org/t/p/w342' + this.poster;
+                return elem.poster = posterImg;
+            });
+        }
+
+
 
     }
 });
