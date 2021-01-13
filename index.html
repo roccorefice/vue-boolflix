@@ -18,56 +18,55 @@
             <button
             @click="showInputResults(userInput)"
             >CERCA</button>
+        </div>
 
-            <!-- FILMS -->
-            <div id="films" v-for="film in filmsByInput" >
-                <div>
-                    <h2>{{film.title}}</h2>
-                    <h3>{{film.original_title}}</h3>
-                    <p> Lingua: </p> 
-                    <!-- <span v-if="film.original_language == 'en' ">{{film.original_language}} </span> -->
+        <!-- FILMS -->
+        <div id="films" v-for="film in filmsByInput" >
+            <div>
+                <h2>{{film.title}}</h2>
+                <h3>{{film.original_title}}</h3>
+                <p> Lingua: </p> 
 
-                    <img v-if="film.original_language == 'en' "  src="./assets/img/en.png" alt="" class="flag">
-                    <img v-else-if="film.original_language == 'ko'" src="./assets/img/ko.png" alt="">
-                    <img v-else-if="film.original_language == 'ja'" src="./assets/img/ja.png" alt="">
-                    <img v-else-if="film.original_language == 'da'" src="./assets/img/da.png" alt="">
-                    <img v-else :src="film.flag" alt="">
-                    <br>
+                <img v-if="film.original_language == 'en' "  src="./assets/img/en.png" alt="" class="flag">
+                <img v-else-if="film.original_language == 'ko'" src="./assets/img/ko.png" alt="">
+                <img v-else-if="film.original_language == 'ja'" src="./assets/img/ja.png" alt="">
+                <img v-else-if="film.original_language == 'da'" src="./assets/img/da.png" alt="">
+                <img v-else :src="film.flag" alt="">
+                <br>
 
-                    <i v-for ="star in film.stars" class="fas fa-star"></i><i v-for ="starsEmpty in 5 - film.stars" class="far fa-star"></i>
-                    
-                    <br>
-                    <br>
-                </div>
+                <i v-for ="star in film.stars" class="fas fa-star"></i><i v-for ="starsEmpty in 5 - film.stars" class="far fa-star"></i>
+                
+                <br>
+                <br>
             </div>
-            <!-- ///FILMS -->
+        </div>
+        <!-- ///FILMS -->
 
 
-            <!-- TV SERIES -->
-            <div id="tv_series" v-for="tvserie in tvSeriesByInput" >
-                <div>
-                    <h2>{{tvserie.name}}</h2>
-                    <h3>{{tvserie.original_name}}</h3>
-                    <p> Lingua: </p> 
-                    <!-- <span v-if="film.original_language == 'en' ">{{film.original_language}} </span> -->
+        <!-- TV SERIES -->
+        <div id="tv_series" v-for="tvserie in tvSeriesByInput" >
+            <div>
+                <h2>{{tvserie.name}}</h2>
+                <h3>{{tvserie.original_name}}</h3>
+                <p> Lingua: </p> 
 
-                    <img v-if="tvserie.original_language == 'en' "  src="./assets/img/en.png" alt="" class="flag">
-                    <img v-else-if="tvserie.original_language == 'ko'" src="./assets/img/ko.png" alt="">
-                    <img v-else-if="tvserie.original_language == 'ja'" src="./assets/img/ja.png" alt="">
-                    <img v-else-if="tvserie.original_language == 'da'" src="./assets/img/da.png" alt="">
-                    <img v-else :src="tvserie.flag" alt="">
-                    <br>
+                <img v-if="tvserie.original_language == 'en' "  src="./assets/img/en.png" alt="" class="flag">
+                <img v-else-if="tvserie.original_language == 'ko'" src="./assets/img/ko.png" alt="">
+                <img v-else-if="tvserie.original_language == 'ja'" src="./assets/img/ja.png" alt="">
+                <img v-else-if="tvserie.original_language == 'da'" src="./assets/img/da.png" alt="">
+                <img v-else :src="tvserie.flag" alt="">
+                <br>
 
-                    <i v-for ="star in tvserie.stars" class="fas fa-star"></i><i v-for ="starsEmpty in 5 - tvserie.stars" class="far fa-star"></i>
-                    
-                    <br>
-                    <br>
-                </div>
+                <i v-for ="star in tvserie.stars" class="fas fa-star"></i><i v-for ="starsEmpty in 5 - tvserie.stars" class="far fa-star"></i>
+                
+                <br>
+                <br>
             </div>
+        </div>
 
             <!-- ///TV SERIES -->
 
-        </div>
+        
 
        
 
