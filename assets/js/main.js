@@ -26,6 +26,7 @@ let app = new Vue({
             .then(response => {
                 this.filmsByInput = response.data.results;
                 console.log(this.filmsByInput);
+                this.userInput ='';
 
                 //invoco le funzioni per:
                 //mostrare il voto tramite stelle
@@ -44,6 +45,8 @@ let app = new Vue({
             .then(response =>{
                 this.tvSeriesByInput = response.data.results;
                 console.log(this.tvSeriesByInput);
+                this.userInput ='';
+
 
                 //invoco le funzioni per:
                 //mostrare il voto tramite stelle
