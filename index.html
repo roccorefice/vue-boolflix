@@ -1,126 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Boolfix</title>
     <!-- fontawesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-    crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
     <!-- style.css -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
     <div id="app">
+      <div class="container">
         <!-- header -->
         <header id="header">
-            <div id="navbar" class="container d_flex">
+          <div id="navbar" class="d_flex">
 
-                <!-- logo -->
-                <div class="logo">
-                    <a href=""><img src="./assets/img/boolflix.png" alt=""></a>
-                </div>
-
-                <!-- searchbar -->
-                <div class="searchbar">
-                <input type="search" v-model="userInput" placeholder="Cerca Film o Serie Tv" v-on:keyup.enter="showInputResults(userInput)">
-                </div>
+            <!-- logo -->
+            <div class="logo">
+              <a href=""><img src="./assets/img/boolflix.png" alt="" /></a>
             </div>
+
+            <!-- searchbar -->
+            <div class="searchbar">
+              <input
+                type="search"
+                v-model="userInput"
+                placeholder="Cerca Film o Serie Tv"
+                v-on:keyup.enter="showInputResults(userInput)"
+              />
+            </div>
+          </div>
         </header>
         <!-- ///header -->
 
         <!-- FILMS -->
-        <h2 class=" container section_title">Film</h2>
+        <h2 class="section_title">Film</h2>
         <section id="films" class="d_flex">
-            <!-- <div class="container "> -->
 
-                <!-- card -->
-                <div v-for="film in filmsByInput" class="card">
+          <!-- card -->
+          <div v-for="film in filmsByInput" class="card">
 
-                    <!-- img copertina -->
-                    <div class="poster">
-                    <img :src="film.poster" alt="">
-                    </div>
+            <!-- img copertina -->
+            <div class="poster">
+              <img :src="film.poster" alt="" />
+            </div>
 
-                    <!-- info film -->
-                    <div class="info">
-                        <div class="titolo">
-                            Titolo: <strong>{{film.title}}</strong>
-                        </div>
-                        <div class="titolo_originale">
-                            Titolo originale: <strong>{{film.original_title}}</strong>
-                        </div>
-                        <div class="lingua d_flex">
-                            <p> Lingua:</p> 
-                            <span>
-                                <img v-if="film.original_language == 'en' "  src="./assets/img/en.png" alt="" class="flag">
-                                <img v-else-if="film.original_language == 'ko'" src="./assets/img/ko.png" alt="">
-                                <img v-else-if="film.original_language == 'ja'" src="./assets/img/ja.png" alt="">
-                                <img v-else-if="film.original_language == 'da'" src="./assets/img/da.png" alt="">
-                                <img v-else :src="film.flag" alt="">
-                            </span>
-                        </div>
-                        <div class="voto">
-                            Voti: 
-                            <i v-for ="star in film.stars" class="fas fa-star"></i><i v-for ="starsEmpty in 5 - film.stars" class="far fa-star"></i>
-                        </div>
-                        <div class="descrizione">
-                            Overview: <p>{{film.overview}}</p>
-                        </div>
-                    </div>
-                </div>
-            <!-- </div> -->
+            <!-- info film -->
+            <div class="info">
+              <div class="titolo">Titolo: <strong>{{film.title}}</strong></div>
+              <div class="titolo_originale">
+                Titolo originale: <strong>{{film.original_title}}</strong>
+              </div>
+              <div class="lingua d_flex">
+                <p>Lingua:</p>
+                <span>
+                  <img
+                    v-if="film.original_language == 'en' "
+                    src="./assets/img/en.png"
+                    alt=""
+                    class="flag"
+                  />
+                  <img
+                    v-else-if="film.original_language == 'ko'"
+                    src="./assets/img/ko.png"
+                    alt=""
+                  />
+                  <img
+                    v-else-if="film.original_language == 'ja'"
+                    src="./assets/img/ja.png"
+                    alt=""
+                  />
+                  <img
+                    v-else-if="film.original_language == 'da'"
+                    src="./assets/img/da.png"
+                    alt=""
+                  />
+                  <img v-else :src="film.flag" alt="" />
+                </span>
+              </div>
+              <div class="voto">
+                Voti:
+                <i v-for="star in film.stars" class="fas fa-star"></i
+                ><i
+                  v-for="starsEmpty in 5 - film.stars"
+                  class="far fa-star"
+                ></i>
+              </div>
+              <div class="descrizione">
+                Overview:
+                <p>{{film.overview}}</p>
+              </div>
+            </div>
+          </div>
+          <!-- </div> -->
         </section>
         <!-- ///FILMS -->
 
-
-
         <!-- SERIE TV -->
-        <h2 class=" container section_title">Serie Tv</h2>
+        <h2 class="section_title">Serie Tv</h2>
         <section id="serieTv" class="d_flex">
-            <!-- <div class="container "> -->
 
-                <!-- card -->
-                <div v-for="serietv in tvSeriesByInput" class="card">
+          <!-- card -->
+          <div v-for="serietv in tvSeriesByInput" class="card">
 
-                    <!-- img copertina -->
-                    <div class="poster">
-                    <img :src="serietv.poster" alt="">
-                    </div>
+            <!-- img copertina -->
+            <div class="poster">
+              <img :src="serietv.poster" alt="" />
+            </div>
 
-                    <!-- info film -->
-                    <div class="info">
-                        <div class="titolo">
-                            Titolo: <strong>{{serietv.name}}</strong>
-                        </div>
-                        <div class="titolo_originale">
-                            Titolo originale: <strong>{{serietv.original_name}}</strong>
-                        </div>
-                        <div class="lingua d_flex">
-                            <p> Lingua:</p> 
-                            <span>
-                                <img v-if="serietv.original_language == 'en' "  src="./assets/img/en.png" alt="" class="flag">
-                                <img v-else-if="serietv.original_language == 'ko'" src="./assets/img/ko.png" alt="">
-                                <img v-else-if="serietv.original_language == 'ja'" src="./assets/img/ja.png" alt="">
-                                <img v-else-if="serietv.original_language == 'da'" src="./assets/img/da.png" alt="">
-                                <img v-else :src="serietv.flag" alt="">
-                            </span>
-                        </div>
-                        <div class="voto">
-                            Voti: 
-                            <i v-for ="star in serietv.stars" class="fas fa-star"></i><i v-for ="starsEmpty in 5 - serietv.stars" class="far fa-star"></i>
-                        </div>
-                        <div class="descrizione">
-                            Overview: <p>{{serietv.overview}}</p>
-                        </div>
-                    </div>
-                </div>
-            <!-- </div> -->
+            <!-- info film -->
+            <div class="info">
+              <div class="titolo">
+                Titolo: <strong>{{serietv.name}}</strong>
+              </div>
+              <div class="titolo_originale">
+                Titolo originale: <strong>{{serietv.original_name}}</strong>
+              </div>
+              <div class="lingua d_flex">
+                <p>Lingua:</p>
+                <span>
+                  <img
+                    v-if="serietv.original_language == 'en' "
+                    src="./assets/img/en.png"
+                    alt=""
+                    class="flag"
+                  />
+                  <img
+                    v-else-if="serietv.original_language == 'ko'"
+                    src="./assets/img/ko.png"
+                    alt=""
+                  />
+                  <img
+                    v-else-if="serietv.original_language == 'ja'"
+                    src="./assets/img/ja.png"
+                    alt=""
+                  />
+                  <img
+                    v-else-if="serietv.original_language == 'da'"
+                    src="./assets/img/da.png"
+                    alt=""
+                  />
+                  <img v-else :src="serietv.flag" alt="" />
+                </span>
+              </div>
+              <div class="voto">
+                Voti:
+                <i v-for="star in serietv.stars" class="fas fa-star"></i
+                ><i
+                  v-for="starsEmpty in 5 - serietv.stars"
+                  class="far fa-star"
+                ></i>
+              </div>
+              <div class="descrizione">
+                Overview:
+                <p>{{serietv.overview}}</p>
+              </div>
+            </div>
+          </div>
+          <!-- </div> -->
         </section>
         <!-- ///SERIE TV -->
+        
+      </div>
     </div>
-
 
     <!-- axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -128,5 +176,5 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <!-- js -->
     <script src="./assets/js/main.js"></script>
-</body>
+  </body>
 </html>

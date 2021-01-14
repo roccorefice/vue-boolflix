@@ -1,148 +1,139 @@
 /* reset */
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-body{
-    background-color: #141414;
-    font-family: Helvetica, sans-serif;
-    color: white;
+body {
+  background-color: #141414;
+  font-family: Helvetica, sans-serif;
+  color: white;
 }
+
 /* utility class */
-.container{
-    width: 1700px;
+.container {
+  width: 1700px;
+  margin: auto;
 }
-.d_flex{
-    display: flex;
+.d_flex {
+  display: flex;
 }
-.d_flex_col{
-    display: flex;
-    flex-direction: column;
+.d_flex_col {
+  display: flex;
+  flex-direction: column;
 }
-.wrap{
-    flex-wrap: nowrap;
+.wrap {
+  flex-wrap: nowrap;
 }
 /* ///utility class */
 
 /* navbar */
-#header{
-    background-color: #141414;
+#header {
+  background-color: #141414;
 }
-#navbar{
-    height: 100px;
-    margin: auto;
-    justify-content: space-between;
-    align-items: center;
+#navbar {
+  height: 100px;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
 }
-.logo img{
-    height: 60px;
+.logo img {
+  height: 60px;
 }
-.searchbar input{
-    height: 40px;
-    width: 300px;
-    background-color: #141414 ;
-    border: 1px solid white;
-    font-size: 20px;
-    padding: 5px;
-    color: white;
-    border-radius: 0%;
+.searchbar input {
+  height: 40px;
+  width: 300px;
+  background-color: #141414;
+  border: 1px solid white;
+  font-size: 20px;
+  padding: 5px;
+  color: white;
+  border-radius: 0%;
 }
-.searchbar input:focus{
-    outline-color: black;
+.searchbar input:focus {
+  outline-color: black;
 }
 /* ///navbar */
 
 
 /* main */
-
-.section_title{
-    padding: 50px;
-    font-weight: 500;
-    font-size: 30px;
-    margin: auto;
-    
+.section_title {
+  padding: 50px;
+  font-weight: 500;
+  font-size: 30px;
 }
 
 /* card */
-.card{
-    background-color: black;
-    border-radius: 3px;
-    margin: 12px;
-    height: 450px;
-    min-width: 300px;
+.card {
+  background-color: black;
+  border-radius: 3px;
+  margin: 12px;
+  height: 450px;
+  min-width: 300px;
 }
-section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-} 
-.poster img{
-    height: 450px;
-    min-width: 300px;
-    border-radius: 3px;
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
-.card:hover{
-    box-shadow: 0 0 50px black;
-    cursor: pointer;
-    transition: transform 1.5s;
-    transition-delay: 1s;
-    transform: scale(1.3);
-    z-index: 5;    
-    position: relative;
+.poster img {
+  height: 450px;
+  min-width: 300px;
+  border-radius: 3px;
 }
-
+.card:hover {
+  box-shadow: 0 0 50px black;
+  cursor: pointer;
+  transition: transform 1.5s;
+  transition-delay: 1s;
+  transform: scale(1.3);
+  z-index: 5;
+  position: relative;
+}
 
 /* info */
-.info{
-    background-color: black;
-    opacity: 85%;
-    width: 100%;
-    height: 100%;
-    color: white;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: none ;
-    text-align: left;
-    padding: 25px;
-    vertical-align: 50px;
+.info {
+  background-color: black;
+  opacity: 85%;
+  width: 100%;
+  height: 100%;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  text-align: left;
+  padding: 25px;
+  vertical-align: 50px;
 }
-.card:hover .info{
-    display: block;
+.card:hover .info {
+  display: block;
 }
-.info .titolo{
-    padding-bottom: 10px;
-    font-size: 20px;
+.info .titolo {
+  padding-bottom: 10px;
+  font-size: 20px;
 }
-.info .titolo_originale{
-    padding-bottom: 5px;
-    font-size: 16px;
+.info .titolo_originale {
+  padding-bottom: 5px;
+  font-size: 16px;
 }
-.lingua{
-    align-items: center;
+.lingua {
+  align-items: center;
 }
-.lingua img{
-    padding-left: 10px;
+.lingua img {
+  padding-left: 10px;
 }
-.voto{
-    margin-top: 5px;
+.voto {
+  margin-top: 5px;
 }
-.voto i{
-    color: gold;
+.voto i {
+  color: gold;
 }
-.descrizione{
-    margin-top: 5px;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical; 
+.descrizione {
+  margin-top: 5px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
 }
-
-
-
-
-
-
-
